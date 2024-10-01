@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Audio Texture Manipulation by Exemplar-Based ">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Audio Texture Manipulation by Exemplar-Based Analogy</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Nerfies: Deformable Neural Radiance Fields</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="#">Keunhong Park</a>,</span>
+            <span class="author-block">
+              <a href="#">Utkarsh Sinha2</a>,</span>
+            <span class="author-block">
+                <a href="#">Jonathan T. Barron2</a></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">EECS, UC Berkeley</span>
+
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/pdf/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/abs/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span> -->
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Audio texture manipulation involves modifying the perceptual characteristics of a sound to achieve specific transformations, such as adding, removing, or replacing auditory elements. In this paper, we propose an exemplar-based analogy model for audio texture manipulation. Instead of conditioning on text-based instructions, our method uses paired speech examples, where one clip represents the original sound and another illustrates the desired transformation. The model learns to apply the same transformation to new input, allowing for the manipulation of sound textures. We construct a quadruplet dataset representing various editing tasks, and train a latent diffusion model in a self-supervised manner. We show through quantitative evaluations and perceptual studies that our model outperforms text-conditioned baselines and generalizes well to real-world, out-of-distribution, and non-speech scenarios.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Analogy. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Manipulation by Analogy</h2>
+        <div class="content has-text-justified">
+<!--           <video controls="controls" poster="./static/poster/analogy.png"> -->
+            <video width="100%" autoplay loop muted playsinline>
+            <source src="./static/videos/teaser.mp4" type="video/mp4">
+          </video>
+          <p>
+            We manipulate input speech based on an exemplar pair, where the pair defines the desired transformation such as adding, removing, or replacing specific sound elements.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Analogy. -->
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Addition In-Domain. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Addition Results with In-Domain Examples</h2>
+        <div class="content has-text-justified">
+          <video controls="controls" poster="./static/poster/add_indomain1.png">
+            <source src="./static/videos/add_indomain1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="content has-text-justified">
+          <video controls="controls" poster="./static/poster/add_indomain2.png">
+            <source src="./static/videos/add_indomain2.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <!--/ Addition In-Domain. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Removal In-Domain. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Removal Results with In-Domain Examples</h2>
+        <div class="content has-text-justified">
+          <video controls="controls" poster="./static/poster/remove_indomain1.png">
+            <source src="./static/videos/remove_indomain1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="content has-text-justified">
+          <video controls="controls" poster="./static/poster/remove_indomain2.png">
+            <source src="./static/videos/remove_indomain2.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <!--/ Removal In-Domain. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Removal In-Domain. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Replacement Results with In-Domain Examples</h2>
+        <div class="content has-text-justified">
+          <video controls="controls" poster="./static/poster/replace_indomain1.png">
+            <source src="./static/videos/replace_indomain1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="content has-text-justified">
+          <video controls="controls" poster="./static/poster/replace_indomain2.png">
+            <source src="./static/videos/replace_indomain2.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <!--/ Removal In-Domain. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Generalization videos. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Generalization to Out-Of-Distribution Data</h2>
+        <div class="content has-text-justified">
+          <video controls="controls" poster="./static/poster/add_ood1.png">
+            <source src="./static/videos/add_ood1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="content has-text-justified">
+          <video controls="controls" poster="./static/poster/add_ood2.png">
+            <source src="./static/videos/add_ood2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="content has-text-justified">
+          <video controls="controls" poster="./static/poster/remove_ood1.png">
+            <source src="./static/videos/remove_ood1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="content has-text-justified">
+          <video controls="controls" poster="./static/poster/remove_ood2.png">
+            <source src="./static/videos/remove_ood2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="content has-text-justified">
+          <video controls="controls" poster="./static/poster/enc.png">
+            <source src="./static/videos/enc.mp4" type="video/mp4">
+          </video>
+        </div>
+
+      </div>
+    </div>
+    <!--/ Generalization videos. -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Model Architecture. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Model Architecture</h2>
+        <div class="content has-text-justified">
+          <img src="./static/images/model.png">
+          <p>
+            Given the input audio and exemplar pair, our goal is to transform the input to match the texture transformation demonstrated by the exemplar pair. We employ a pre-trained VAE encoder to encode both the input and target spectrograms to the latent space, and feed them into a latent diffusion model together with the exemplar pair embedding and positional encoding. Finally, we use pre-trained VAE decoder and HiFi-GAN vocoder to reconstruct the waveform from the latent space. Note that the VAE encoder for the target spectrogram is not used at test time.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Model. -->
+  </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Related Links and Works. -->
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Related Works</h2>
+        <div class="content has-text-justified">
+          <p>
+            Analogy-based methods have been studied in various deep learning fields.
+          </p>
+          <p>
+            <a href="https://en.wikipedia.org/wiki/Analogical_modeling">Analogical Modeling</a> is a formal theory of exemplar based analogical reasoning.
+          </p>
+          <p>
+            <a href="https://mrl.cs.nyu.edu/publications/image-analogies/analogies-72dpi.pdf">Image Analogies</a> applies learned image filters to new images, enabling effects like texture synthesis, super-resolution, texture transfer, and artistic styles based on example image pairs.
+          </p>
+          <p>
+            <a href="https://yossigandelsman.github.io/visual_prompt/">Visual Prompting via Image Inpainting</a> explores visual prompting, adapting pre-trained visual models to new tasks without finetuning or modification, by using image inpainting on curated academic figures to solve various image-to-image tasks like segmentation and object detection.
+          </p>
+          <p>
+            <a href="https://yutongbai.com/lvm.html">Sequential Modeling Enables Scalable Learning for Large Vision Models</a> introduces a sequential modeling approach for training a Large Vision Model (LVM) without linguistic data, using "visual sentences" to represent diverse visual inputs.
+          </p>
+          <p>
+            <a href="https://xypb.github.io/CondFoleyGen/">Conditional Generation of Audio from Video via Foley Analogies</a> proposes a conditional Foley model that generates sound effects for silent videos given a user-supplied example. It also introduces a pretext task for predicting sound based on conditional audio-visual clips.
+          </p>
+          <p>
+            <a href="https://tinglok.netlify.app/files/avsoundscape/">Self-Supervised Audio-Visual Soundscape Stylization</a> introduces a self-supervised model that manipulates speech to match the sound properties of a different scene, using audio-visual examples and leveraging natural video data for training.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Related Links and Works. -->
+  </div>
+</section>
+
+
+
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@article{,
+      author    = {Cheng, Kan Jen and Li, Tingle and Anumanchipalli, Gopala},
+      title     = {Audio Texture Manipulation by Exemplar-Based Analogy},
+      journal   = {arXiv},
+      year      = {2024},
+    }</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>. You are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript"> 
+var sc_project=12691142;  
+var sc_invisible=1;  
+var sc_security="b5064dc1";  
+</script> 
+<script type="text/javascript" 
+src="https://www.statcounter.com/counter/counter.js" 
+async></script> 
+<noscript><div class="statcounter"><a title="Web Analytics" 
+href="https://statcounter.com/" target="_blank"><img 
+class="statcounter" 
+src="https://c.statcounter.com/12691142/0/b5064dc1/1/" 
+alt="Web Analytics" 
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript> 
+  
+</body>
+</html>
