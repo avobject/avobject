@@ -1,4 +1,4 @@
-# Nerfies
+# Object-Aware Audio-Visual Sound Generation
 
 This is the HTML page borrowed from [Nerfies website](https://nerfies.github.io).
 
