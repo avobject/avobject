@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="description"
         content="Object-Aware Audio-Visual Sound Generation">
-  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="keywords" content="AVObject, Audio Generation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Object-Aware Audio-Visual Sound Generation</title>
 
@@ -32,7 +32,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Object-Aware Audio-Visual <br> Sound Generation</h1>
+          <h1 class="title is-2 publication-title">Object-Aware Audio-Visual Sound Generation</h1>
 
           <div class="is-size-5 publication-authors">
 
@@ -117,7 +117,7 @@
             <!-- <video class="center-video" autoplay muted loop playsinline style="margin: 1em auto 0 auto;"> -->
               <!-- <source src="./static/videos/teaser.mp4" type="video/mp4"> -->
               <div style="text-align: center;">
-              <img src="./static/videos/teaser.jpg" alt="Teaser Image" style="width: 100%">
+              <img src="./static/images/teaser.jpg" alt="Teaser Image" style="width: 100%">
               <p style="text-align: left; margin-top: 1em;">
               <b>Object-aware sound generation.</b> We generate sound aligned with specific visual objects in complex scenes. Users can select objects in the scene using segmentation masks, and the model generates audio corresponding to the selected objects. Here, we show a busy street with multiple sound sources (left). After training, our model generates object-specific audio (right), such as crowd noise for people, engine sounds for cars, and ambient wind for the sky.
               </p>
@@ -155,13 +155,13 @@
         <h2 class="title is-3">Compositional Sound Generation
         </h2>
         <div class="content has-text-justified">
-          <video controls="controls" poster="./static/poster/add_indomain1.png">
-            <source src="./static/videos/add_indomain1.mp4" type="video/mp4">
+          <video width=100% controls="controls" poster="./static/poster/comp-1-preview.png">
+            <source src="./static/videos/comp-1.mp4" type="video/mp4">
           </video>
         </div>
         <div class="content has-text-justified">
-          <video controls="controls" poster="./static/poster/add_indomain2.png">
-            <source src="./static/videos/add_indomain2.mp4" type="video/mp4">
+          <video width=100% controls="controls" poster="./static/poster/comp-2-preview.png">
+            <source src="./static/videos/comp-2.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -177,13 +177,13 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Sound Adaptation to Visual Texture Changes</h2>
         <div class="content has-text-justified">
-          <video controls="controls" poster="./static/poster/remove_indomain1.png">
-            <source src="./static/videos/remove_indomain1.mp4" type="video/mp4">
+          <video width=100% controls="controls" poster="./static/poster/ada-1-preview.png">
+            <source src="./static/videos/ada-1.mp4" type="video/mp4">
           </video>
         </div>
         <div class="content has-text-justified">
-          <video controls="controls" poster="./static/poster/remove_indomain2.png">
-            <source src="./static/videos/remove_indomain2.mp4" type="video/mp4">
+          <video width=100% controls="controls" poster="./static/poster/ada-2-preview.png">
+            <source src="./static/videos/ada-2.mp4" type="video/mp4">
           </video>
         </div>
       </div>
@@ -199,31 +199,20 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Generation Results with In-Domain Examples</h2>
         <div class="content has-text-justified">
-          <video controls="controls" poster="./static/poster/add_ood1.png">
-            <source src="./static/videos/add_ood1.mp4" type="video/mp4">
+          <video width=100% controls="controls" poster="./static/poster/indomain-1-preview.png">
+            <source src="./static/videos/indomain-1.mp4" type="video/mp4">
           </video>
         </div>
         <div class="content has-text-justified">
-          <video controls="controls" poster="./static/poster/add_ood2.png">
-            <source src="./static/videos/add_ood2.mp4" type="video/mp4">
+          <video width=100% controls="controls" poster="./static/poster/indomain-2-preview.png">
+            <source src="./static/videos/indomain-2.mp4" type="video/mp4">
           </video>
         </div>
         <div class="content has-text-justified">
-          <video controls="controls" poster="./static/poster/remove_ood1.png">
-            <source src="./static/videos/remove_ood1.mp4" type="video/mp4">
+          <video width=100% controls="controls" poster="./static/poster/indomain-3-preview.png">
+            <source src="./static/videos/indomain-3.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="content has-text-justified">
-          <video controls="controls" poster="./static/poster/remove_ood2.png">
-            <source src="./static/videos/remove_ood2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="content has-text-justified">
-          <video controls="controls" poster="./static/poster/enc.png">
-            <source src="./static/videos/enc.mp4" type="video/mp4">
-          </video>
-        </div>
-
       </div>
     </div>
     <!-- Generation Results with In-Domain Examples. -->
@@ -237,9 +226,9 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Model Architecture</h2>
         <div class="content has-text-justified">
-          <img src="./static/images/model.png">
-          <p>
-            <!-- Given the input audio and exemplar pair, our goal is to transform the input to match the texture transformation demonstrated by the exemplar pair. We employ a pre-trained VAE encoder to encode both the input and target spectrograms to the latent space, and feed them into a latent diffusion model together with the exemplar pair embedding and positional encoding. Finally, we use pre-trained VAE decoder and HiFi-GAN vocoder to reconstruct the waveform from the latent space. Note that the VAE encoder for the target spectrogram is not used at test time. -->
+          <img src="./static/images/method.jpg">
+          <p style="text-align: left; margin-top: 2em;">
+            We encode the reference spectrogram via a pre-trained latent encoder. An image and text prompt are processed by separate encoders, and their embeddings are fused using an attention mechanism to highlight relevant objects. We then feed these conditioned features and noisy latent into a latent diffusion model to generate the object-specific audio. Finally, the latent decoder reconstructs the spectrogram, and a pre-trained HiFi-GAN vocoder generates the final audio waveform. At test time, we replace the attention with a user-provided segmentation mask, and the latent encoder for the reference spectrogram is <i>not</i> used. 
           </p>
         </div>
       </div>
@@ -277,10 +266,16 @@
       <div class="column is-8">
         <div class="content">
           <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>. You are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website.
+            This website is licensed under a 
+            <a rel="license" 
+            href="http://creativecommons.org/licenses/by-sa/4.0/"
+            target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>, 
+            and is written by <a href="https://keunhong.com/" target="_blank">
+            Keunhong Park</a> for the <a href="https://nerfies.github.io/" 
+            target="_blank">Nerfies</a> project. Feel free to use the 
+            <a href="https://github.com/nerfies/nerfies.github.io"
+            target="_blank">source code</a> of this website.
           </p>
         </div>
       </div>
